@@ -1,0 +1,22 @@
+{
+  "name": "amber-soft/php.sdk",
+  "description": "SDK to REST API",
+  "minimum-stability": "stable",
+  "license": "proprietary",
+  "authors": [
+    {
+      "name": "Evgeniy Peshkov",
+      "email": "amber@devtrick.com"
+    }
+  ],
+  "require": {
+    "php": ">=5.6",
+    "guzzlehttp/guzzle": "6.3.0",
+    "gregwar/cache": "v1.0.12"
+  },
+  "autoload": {
+    "psr-4": {
+      "AmberSdk\\": "src/"
+    }
+  }
+}

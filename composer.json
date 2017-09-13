@@ -2,7 +2,8 @@
   "name": "amber-soft/php.sdk",
   "description": "SDK to REST API",
   "minimum-stability": "stable",
-  "license": "proprietary",
+  "type": "library",
+  "license": "MIT",
   "authors": [
     {
       "name": "Evgeniy Peshkov",

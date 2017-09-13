@@ -1,0 +1,5 @@
+composer.phar
+/vendor/
+/cache/T/o/k/e/n/TokenCacheKey
+/.idea/*
+

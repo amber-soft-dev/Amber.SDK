@@ -14,6 +14,11 @@ class AuthManager
     const TOKEN_CACHE_KEY = "TokenCacheKey";
 
     /**
+     * @var Cache
+     */
+    private $cache;
+
+    /**
      * @var Client
      */
     private $httpClient;
@@ -38,6 +43,7 @@ class AuthManager
      */
     private $username;
 
+
     /**
      * @param array $config
      */
@@ -48,11 +54,15 @@ class AuthManager
         $this->lock = $config['lock_path'];
         $endpoint = $config['base_uri'] . $config['endpoint'];
 
+
         $this->httpClient = new Client([
             'base_uri' => $endpoint
         ]);
 
         $this->token = '';
+
+        $this->cache = new Cache();
+        $this->cache->setCacheDirectory($config['cacheDirectory']);
     }
 
     /**
@@ -61,10 +71,9 @@ class AuthManager
      */
     public function getToken($forceUpdate = false)
     {
-        $cache = new Cache();
         if ($forceUpdate) {
             $this->token = "";
-            $cache->set(self::TOKEN_CACHE_KEY, "");
+            $this->cache->set(self::TOKEN_CACHE_KEY, "");
         }
 
         if (empty($this->token)) {
@@ -82,7 +91,7 @@ class AuthManager
                 } else {
                     $token = $this->getAuthTokenRemote();
                     $this->token = $token;
-                    $cache->set(self::TOKEN_CACHE_KEY, $token);
+                    $this->cache->set(self::TOKEN_CACHE_KEY, $token);
                 }
                 fclose($fp);
             }
@@ -96,9 +105,8 @@ class AuthManager
      */
     private function getTokenFromCache()
     {
-        $cache = new Cache();
-        if ($cache->exists(self::TOKEN_CACHE_KEY)) {
-            return $cache->get(self::TOKEN_CACHE_KEY);
+        if ($this->cache->exists(self::TOKEN_CACHE_KEY)) {
+            return $this->cache->get(self::TOKEN_CACHE_KEY);
         }
         return "";
     }

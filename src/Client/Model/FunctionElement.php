@@ -14,4 +14,14 @@ class FunctionElement
      * @var ExpressionElement[]
      */
     public $arguments;
+
+    /**
+     * @param string $functionCode
+     * @param array $arguments
+     */
+    function __construct($functionCode, array $arguments)
+    {
+        $this->functionCode = $functionCode;
+        $this->arguments = $arguments;
+    }
 }

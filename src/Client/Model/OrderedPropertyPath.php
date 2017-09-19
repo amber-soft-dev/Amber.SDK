@@ -10,4 +10,13 @@ class OrderedPropertyPath extends PropertyPath
      */
     public $order;
 
+    /**
+     * @param string $property
+     * @param string $order
+     */
+    function __construct($property, $order)
+    {
+        $this->order = $order;
+        parent::__construct($property);
+    }
 }

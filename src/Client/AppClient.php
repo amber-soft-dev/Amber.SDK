@@ -3,6 +3,7 @@
 namespace AmberSdk\Client;
 
 
+use AmberSdk\Client\Model\ExecutionQuery;
 use Exception;
 use GuzzleHttp\Client;
 use GuzzleHttp\Psr7\Request;
@@ -177,5 +178,17 @@ class AppClient
         $uri = "instance/{$name}/{$id}";
         $request = new Request('PUT', $uri, [], json_encode($data));
         $this->handleRequest($request);
+    }
+
+    /**
+     * @param ExecutionQuery $query
+     * @return array
+     */
+    public function execQuery(ExecutionQuery $query)
+    {
+        $uri = "executeQuery";
+        $request = new Request('POST', $uri, ["Content-Type" => "application/json"], json_encode($query));
+
+        return $this->handleRequest($request);
     }
 }

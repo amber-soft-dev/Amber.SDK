@@ -35,9 +35,9 @@ class AppClient
     }
 
     /**
-     * @param string $name
-     * @param int $id
-     * @return mixed
+     * @param string $name Код (тип) объекта
+     * @param int $id ИД экземпляра объекта
+     * @return mixed Объект указанного типа 
      */
     public function getObject($name, $id)
     {
@@ -112,11 +112,11 @@ class AppClient
     }
 
     /**
-     * @param string $name
-     * @param array $filter
-     * @param null $size
-     * @param null $page
-     * @return array
+     * @param string $name Код (тип) объекта
+     * @param array $filter Ассоциативный массив пар 'Поле' => 'Значение' 
+     * @param null $size - размер 
+     * @param null $page - начальная страница
+     * @return array Массив экземпляров указанного типа, подходящие под фильтр. Внимание, несколько условий объединяются через ИЛИ
      */
     public function getObjects($name, $filter = [], $size = null, $page = null)
     {
@@ -155,9 +155,9 @@ class AppClient
     }
 
     /**
-     * @param string $name
-     * @param array $data
-     * @return int
+     * @param string $name Код (тип) объекта
+     * @param array $data Ассоциативный массив пар 'Поле' => 'Значение', указанные значения будут присвоены полям нового экземпляра
+     * @return int ИД вновь созданного экземпляра
      */
     public function saveObject($name, array $data)
     {
@@ -170,8 +170,8 @@ class AppClient
 
     /**
      * @param string $name
-     * @param int $id
-     * @param array $data
+     * @param int $id ИД экземпляра
+     * @param array $data Ассоциативный массив пар 'Поле' => 'Значение', указанные поля будут обновлены.
      */
     public function updateObject($name, $id, array $data)
     {

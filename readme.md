@@ -8,7 +8,7 @@
 
 Использование
 
-`$config = array(
+$config = array(
     'base_uri'=> 'https://your-url.amber-saas.com/',
     'endpoint'=>'API/V1.svc/',
     'user'=>'User1',
@@ -19,5 +19,5 @@
 
 $endpoint = $config['base_uri'] . $config['endpoint'];
 $client = new \AmberSdk\Client\AppClient($endpoint, new \AmberSdk\Client\AuthManager($config));
-`
+
 

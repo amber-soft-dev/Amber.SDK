@@ -33,7 +33,7 @@ class ExpressionElement
      * @param Operator $operator
      * @param PropertyPath $propertyPath
      */
-    function __construct($brackets, $constant, $function, $operator, $propertyPath)
+    function __construct($brackets = null, $constant = null, $function = null, $operator = null, $propertyPath = null)
     {
         $this->brackets = $brackets;
         $this->constant = $constant;

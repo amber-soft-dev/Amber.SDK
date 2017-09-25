@@ -4,6 +4,7 @@ namespace AmberSdk\Client;
 
 
 use AmberSdk\Client\Model\ExecutionQuery;
+use AmberSdk\Utils\JsonSerializer;
 use Exception;
 use GuzzleHttp\Client;
 use GuzzleHttp\Psr7\Request;
@@ -187,7 +188,9 @@ class AppClient
     public function execQuery(ExecutionQuery $query)
     {
         $uri = "executeQuery";
-        $request = new Request('POST', $uri, ["Content-Type" => "application/json"], json_encode($query));
+        $serializer = new JsonSerializer();
+        $data = $serializer->serialize($query);
+        $request = new Request('POST', $uri, ["Content-Type" => "application/json"], $data);
 
         return $this->handleRequest($request);
     }

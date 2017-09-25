@@ -4,7 +4,8 @@
 Рекомендуемый способ - использование composer.
 `composer require amber-soft/php.sdk`
 # Использование
-```$config = array(
+```
+$config = array(
     'base_uri'=> 'https://your-url.amber-saas.com/',
     'endpoint'=>'API/V1.svc/',
     'user'=>'User1',

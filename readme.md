@@ -23,16 +23,20 @@ $client = new \AmberSdk\Client\AppClient($endpoint, new \AmberSdk\Client\AuthMan
 ```
 getObject($name, $id)
 ```
- - Получение массива объектов по расширенному запросу
+Получение записи по идентификатору
 ```
 getObjects($name, $filter = [], $size = null, $page = null)
 ```
+Получение списка записей данных объекта с возможностью фильтрации и пейджинга
+
 ```
 saveObject($name, array $data)
 ```
+Позволяет создать записи данных для объекта 
 ```
 updateObject($name, $id, array $data)
 ```
+Позволяет редактировать записи данных для объекта
 ```
 execQuery(ExecutionQuery $query)
 ```

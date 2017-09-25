@@ -20,6 +20,24 @@ $client = new \AmberSdk\Client\AppClient($endpoint, new \AmberSdk\Client\AuthMan
 
 Основные методы AppClient:
 
+```
+getObject($name, $id)
+```
+ - Получение массива объектов по расширенному запросу
+```
+getObjects($name, $filter = [], $size = null, $page = null)
+```
+```
+saveObject($name, array $data)
+```
+```
+updateObject($name, $id, array $data)
+```
+```
+execQuery(ExecutionQuery $query)
+```
+Получение массива объектов по расширенному запросу
+
 
 
 

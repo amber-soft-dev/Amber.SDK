@@ -1,14 +1,10 @@
-О проекте
-
+# О проекте
 Это обертка к REST API.
-
-Установка
-
+# Установка
+Рекомендуемый способ - использование composer.
 `composer require amber-soft/php.sdk`
-
-Использование
-
-$config = array(
+# Использование
+```$config = array(
     'base_uri'=> 'https://your-url.amber-saas.com/',
     'endpoint'=>'API/V1.svc/',
     'user'=>'User1',
@@ -19,5 +15,11 @@ $config = array(
 
 $endpoint = $config['base_uri'] . $config['endpoint'];
 $client = new \AmberSdk\Client\AppClient($endpoint, new \AmberSdk\Client\AuthManager($config));
+```
+
+Основные методы AppClient:
+
+
+
 
 

@@ -2,7 +2,9 @@
 Это обертка к REST API.
 # Установка
 Рекомендуемый способ - использование composer.
-`composer require amber-soft/php.sdk`
+```
+composer require amber-soft/php.sdk
+```
 # Использование
 ```
 $config = array(

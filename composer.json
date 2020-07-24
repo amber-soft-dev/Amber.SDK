@@ -1,5 +1,5 @@
 {
-  "name": "amber-soft/php.sdk",
+  "name": "amber-soft-dev/php.sdk",
   "description": "SDK to REST API",
   "minimum-stability": "stable",
   "type": "library",

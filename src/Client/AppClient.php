@@ -14,6 +14,7 @@ use Psr\Http\Message\RequestInterface;
 class AppClient
 {
     const HTTP_OK = 200;
+    const HTTP_Unauthorized = 401;
 
     /**
      * @var Client
@@ -67,8 +68,7 @@ class AppClient
 
             return $items;
         } else {
-            $content = $res->getBody()->getContents();
-            if ($this->isAuthProblem($content)) {
+            if ($statusCode === self::HTTP_Unauthorized) {
                 $token = $this->authManager->getToken(true);
                 $request = $request->withHeader('Token', $token);
                 $res = $this->httpClient->send($request);
@@ -96,20 +96,6 @@ class AppClient
         }
 
         return json_decode($data);
-    }
-
-    /**
-     * @param string $contents
-     * @return bool
-     */
-    private function isAuthProblem($contents)
-    {
-        try {
-            $response = simplexml_load_string($contents);
-            return !empty($response->Detail->NotAuthorized);
-        } catch (Exception $ex) {
-            return false;
-        }
     }
 
     /**

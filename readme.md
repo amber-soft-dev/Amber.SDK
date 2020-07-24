@@ -3,7 +3,7 @@
 # Установка
 Рекомендуемый способ - использование composer.
 ```
-composer require amber-soft/php.sdk
+composer require amber-soft-dev/php.sdk
 ```
 # Использование
 ```

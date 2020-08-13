@@ -149,7 +149,7 @@ class AppClient
     public function saveObject($name, array $data)
     {
         $uri = "instance/{$name}";
-        $request = new Request('POST', $uri, [], json_encode($data));
+        $request = new Request('POST', $uri, ["Content-Type" => "application/json"], json_encode($data));
         $content = $this->handleRequest($request);
 
         return $content->InstanceId;
@@ -163,7 +163,7 @@ class AppClient
     public function updateObject($name, $id, array $data)
     {
         $uri = "instance/{$name}/{$id}";
-        $request = new Request('PUT', $uri, [], json_encode($data));
+        $request = new Request('PUT', $uri, ["Content-Type" => "application/json"], json_encode($data));
         $this->handleRequest($request);
     }
 
